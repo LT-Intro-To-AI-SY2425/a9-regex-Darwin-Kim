@@ -39,8 +39,9 @@ def get_birth_date(name: str) -> str:
     """
 
     infobox_text = clean_text(get_first_infobox_text(get_page_html(name)))
+    print(infobox_text)
     # TODO: fill this in
-    pattern = "REPLACE ME"
+    pattern = "Born[\w+\s\-]+\((?P<birth>[\d+-]+)"
     error_text = (
         "Page infobox has no birth information (at least none in xxxx-xx-xx format)"
     )
@@ -49,15 +50,15 @@ def get_birth_date(name: str) -> str:
 
 
 if __name__ == "__main__":
-    print("\n<<<<<<<<<<<<<< Testing Planet Radius >>>>>>>>>>>>>>")
-    # should be 3376.2
-    print(f'Mars has a polar radius of {get_planet_radius("Mars")}km')
-    # should be 6356.752
-    print(f'Earth has a polar radius of {get_planet_radius("Earth")}km')
-    # should be 66854
-    print(f'Jupiter has a polar radius of {get_planet_radius("Jupiter")}km')
-    # should be 54364
-    print(f'Saturn has a polar radius of {get_planet_radius("Saturn")}km')
+    # print("\n<<<<<<<<<<<<<< Testing Planet Radius >>>>>>>>>>>>>>")
+    # # should be 3376.2
+    # print(f'Mars has a polar radius of {get_planet_radius("Mars")}km')
+    # # should be 6356.752
+    # print(f'Earth has a polar radius of {get_planet_radius("Earth")}km')
+    # # should be 66854
+    # print(f'Jupiter has a polar radius of {get_planet_radius("Jupiter")}km')
+    # # should be 54364
+    # print(f'Saturn has a polar radius of {get_planet_radius("Saturn")}km')
 
     # uncomment below lines for tests once you think you're getting the right output
     # print('\n<<<< Running asserts, this might take a sec >>>>')
@@ -78,11 +79,11 @@ if __name__ == "__main__":
     print(format_birth(get_birth_date("Anita Borg"), "Anita Borg"))
 
     # uncomment below lines for tests once you think you're getting the right output
-    # print('\n<<<< Running asserts, this might take a sec >>>>')
-    # assert get_birth_date("Grace Hopper") == "1906-12-09", "Incorrect birth date for Grace Hopper"
-    # assert get_birth_date("Alan Turing") == "1912-06-23", "Incorrect birth date for Alan Turing"
-    # assert get_birth_date("Tim Berners-Lee") == "1955-06-08", "Incorrect birth date for Tim Berners-Lee"
-    # assert get_birth_date("Anita Borg") == "1949-01-17", "Incorrect birth date for Anita Borg"
-    # print('\n<<<< Birth date tests passed >>>>')
+    print('\n<<<< Running asserts, this might take a sec >>>>')
+    assert get_birth_date("Grace Hopper") == "1906-12-09", "Incorrect birth date for Grace Hopper"
+    assert get_birth_date("Alan Turing") == "1912-06-23", "Incorrect birth date for Alan Turing"
+    assert get_birth_date("Tim Berners-Lee") == "1955-06-08", "Incorrect birth date for Tim Berners-Lee"
+    assert get_birth_date("Anita Borg") == "1949-01-17", "Incorrect birth date for Anita Borg"
+    print('\n<<<< Birth date tests passed >>>>')
 
-    # print('\n<<<< All tests passed! >>>>')
+    print('\n<<<< All tests passed! >>>>')
